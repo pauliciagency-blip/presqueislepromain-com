@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Presque Isle Professional Maintenance | Erie PA Commercial Cleaning</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{--primary:#2a9d8f;--accent:#ebeff5;--dark:#1a2634;--text:#333;}
+body{font-family:'Segoe UI',Arial,sans-serif;color:var(--text);background:#fff;}
+a{text-decoration:none;color:inherit;}
+
+nav{position:sticky;top:0;z-index:999;background:#fff;box-shadow:0 2px 12px rgba(0,0,0,.1);padding:0 5%;}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:72px;}
+.nav-links{display:flex;gap:2rem;align-items:center;}
+.nav-links a{font-weight:600;font-size:.95rem;color:var(--dark);transition:color .2s;}
+.nav-links a:hover{color:var(--primary);}
+.nav-cta{background:var(--primary);color:#fff!important;padding:.5rem 1.2rem;border-radius:6px;transition:background .2s!important;}
+.nav-cta:hover{background:#1f7d72!important;}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px;}
+.hamburger span{display:block;width:24px;height:2px;background:var(--dark);border-radius:2px;}
+.mobile-menu{display:none;flex-direction:column;gap:0;background:#fff;border-top:1px solid #eee;}
+.mobile-menu a{padding:.85rem 5%;font-weight:600;color:var(--dark);border-bottom:1px solid #f0f0f0;}
+.mobile-menu.open{display:flex;}
+
+.hero{position:relative;min-height:92vh;display:flex;align-items:center;background:url('https://images.unsplash.com/photo-1765371513492-264506c3ad09?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w5MTIyMjB8MHwxfHNlYXJjaHwxfHxjbGVhbiUyMG1vZGVybiUyMG9mZmljZSUyMGNvbmZlcmVuY2UlMjByb29tJTIwaW50ZXJpb3J8ZW58MHwwfHx8MTc3NTIyODMwMXww&ixlib=rb-4.1.0&q=80&w=1080') center/cover no-repeat;}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(120deg,rgba(20,35,50,.82) 55%,rgba(42,157,143,.45) 100%);}
+.hero-content{position:relative;z-index:2;padding:0 5%;max-width:760px;}
+.hero-tag{display:inline-block;background:var(--primary);color:#fff;font-size:.8rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:.35rem .9rem;border-radius:20px;margin-bottom:1.2rem;}
+.hero h1{font-size:clamp(2.2rem,5vw,3.8rem);font-weight:800;color:#fff;line-height:1.15;margin-bottom:1.1rem;}
+.hero p{font-size:1.1rem;color:rgba(255,255,255,.88);line-height:1.7;margin-bottom:2rem;max-width:560px;}
+.btn-group{display:flex;gap:1rem;flex-wrap:wrap;}
+.btn{display:inline-block;padding:.85rem 2rem;border-radius:8px;font-weight:700;font-size:1rem;transition:all .2s;cursor:pointer;}
+.btn-primary{background:var(--primary);color:#fff;border:2px solid var(--primary);}
+.btn-primary:hover{background:#1f7d72;border-color:#1f7d72;}
+.btn-outline{background:transparent;color:#fff;border:2px solid rgba(255,255,255,.7);}
+.btn-outline:hover{background:rgba(255,255,255,.12);}
+
+section{padding:5rem 5%;}
+.section-label{font-size:.8rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--primary);margin-bottom:.6rem;}
+.section-title{font-size:clamp(1.7rem,3.5vw,2.5rem);font-weight:800;color:var(--dark);margin-bottom:1rem;line-height:1.2;}
+.section-sub{font-size:1.05rem;color:#555;line-height:1.7;max-width:600px;}
+
+.services-section{background:var(--accent);}
+.services-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:1.5rem;margin-top:3rem;}
+.service-card{background:#fff;border-radius:12px;padding:2rem 1.5rem;box-shadow:0 2px 14px rgba(0,0,0,.06);transition:transform .2s,box-shadow .2s;border-top:4px solid var(--primary);}
+.service-card:hover{transform:translateY(-5px);box-shadow:0 8px 28px rgba(42,157,143,.15);}
+.service-icon{font-size:2.2rem;margin-bottom:1rem;}
+.service-card h3{font-size:1.1rem;font-weight:700;color:var(--dark);margin-bottom:.5rem;}
+.service-card p{font-size:.92rem;color:#666;line-height:1.6;}
+
+.why-section{background:#fff;}
+.why-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;margin-top:3rem;}
+.why-image{border-radius:16px;overflow:hidden;box-shadow:0 12px 40px rgba(0,0,0,.12);}
+.why-image img{width:100%;height:420px;object-fit:cover;display:block;}
+.why-features{display:grid;gap:1.5rem;}
+.why-item{display:flex;gap:1rem;align-items:flex-start;}
+.why-icon{background:var(--accent);color:var(--primary);width:48px;height:48px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.4rem;flex-shrink:0;}
+.why-item h4{font-size:1rem;font-weight:700;color:var(--dark);margin-bottom:.3rem;}
+.why-item p{font-size:.92rem;color:#666;line-height:1.6;}
+
+.cta-band{background:linear-gradient(135deg,var(--primary) 0%,#1f7d72 100%);padding:4rem 5%;text-align:center;}
+.cta-band h2{font-size:clamp(1.6rem,3vw,2.3rem);font-weight:800;color:#fff;margin-bottom:.8rem;}
+.cta-band p{color:rgba(255,255,255,.88);font-size:1.05rem;margin-bottom:2rem;max-width:560px;margin-left:auto;margin-right:auto;}
+.btn-white{background:#fff;color:var(--primary);border:2px solid #fff;}
+.btn-white:hover{background:rgba(255,255,255,.9);}
+
+.gallery-strip{display:grid;grid-template-columns:1fr 1fr 1fr;gap:0;height:260px;}
+.gallery-strip img{width:100%;height:100%;object-fit:cover;display:block;filter:brightness(.85);transition:filter .3s;}
+.gallery-strip img:hover{filter:brightness(1);}
+
+footer{background:var(--dark);color:#aab0b8;padding:3.5rem 5% 1.5rem;}
+.footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:3rem;margin-bottom:2.5rem;}
+.footer-brand h3{font-size:1.2rem;font-weight:800;color:#fff;margin-bottom:.6rem;}
+.footer-brand p{font-size:.92rem;line-height:1.7;}
+.footer-col h4{font-size:.9rem;font-weight:700;color:#fff;text-transform:uppercase;letter-spacing:.08em;margin-bottom:1rem;}
+.footer-col ul{list-style:none;}
+.footer-col ul li{font-size:.9rem;padding:.25rem 0;border-bottom:1px solid rgba(255,255,255,.05);}
+.footer-col ul li:last-child{border:none;}
+.footer-col a{color:#aab0b8;transition:color .2s;}
+.footer-col a:hover{color:var(--primary);}
+.footer-contact a{color:var(--primary);font-weight:600;}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.08);padding-top:1.2rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.5rem;font-size:.82rem;}
+
+@media(max-width:900px){
+.why-grid{grid-template-columns:1fr;}
+.why-image{order:-1;}
+.footer-grid{grid-template-columns:1fr 1fr;}
+}
+@media(max-width:640px){
+.nav-links{display:none;}
+.hamburger{display:flex;}
+.gallery-strip{grid-template-columns:1fr;}
+.gallery-strip img:nth-child(2),.gallery-strip img:nth-child(3){display:none;}
+.gallery-strip{height:200px;}
+.footer-grid{grid-template-columns:1fr;}
+.footer-bottom{flex-direction:column;text-align:center;}
+.services-grid{grid-template-columns:1fr 1fr;}
+}
+@media(max-width:420px){
+.services-grid{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="/presqueislepromain-com/">
+      <img src="https://raw.githubusercontent.com/${process.env.GITHUB_USERNAME}/presqueislepromain-com/main/logo.jpg" alt="Presque Isle Professional Maintenance" style="height:56px;width:auto;"/>
+    </a>
+    <div class="nav-links">
+      <a href="/presqueislepromain-com/">Home</a>
+      <a href="/presqueislepromain-com/about/">About</a>
+      <a href="/presqueislepromain-com/services/">Services</a>
+      <a href="/presqueislepromain-com/contact/" class="nav-cta">Get a Free Estimate</a>
+    </div>
+    <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="/presqueislepromain-com/">Home</a>
+    <a href="/presqueislepromain-com/about/">About</a>
+    <a href="/presqueislepromain-com/services/">Services</a>
+    <a href="/presqueislepromain-com/contact/">Contact</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <span class="hero-tag">Erie PA Commercial Cleaning</span>
+    <h1>Our business is<br>cleaning yours.</h1>
+    <p>Presque Isle Professional Maintenance delivers reliable, professional commercial cleaning to businesses across Erie, PA and surrounding areas. Trained crews. Consistent results. Outstanding service — every time.</p>
+    <div class="btn-group">
+      <a href="/presqueislepromain-com/contact/" class="btn btn-primary">Get a Free Estimate</a>
+      <a href="/presqueislepromain-com/services/" class="btn btn-outline">Our Services</a>
+    </div>
+  </div>
+</section>
+
+<section class="services-section">
+  <div style="max-width:1200px;margin:0 auto;">
+    <p class="section-label">What We Do</p>
+    <h2 class="section-title">Complete Cleaning Solutions<br>for Erie Businesses</h2>
+    <p class="section-sub">From routine office cleaning to construction site cleanup, our certified professionals handle every job with care and expertise.</p>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon">🏢</div>
+        <h3>Office Cleaning</h3>
+        <p>Keep your workspace spotless and welcoming with regular, thorough office cleaning tailored to your schedule.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🏗️</div>
+        <h3>Building Cleaning</h3>
+        <p>Full-scale cleaning for commercial buildings of all sizes — lobbies, hallways, restrooms, and common areas.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🪟</div>
+        <h3>Window Washing</h3>
+        <p>Crystal-clear windows inside and out, leaving your building looking bright, clean, and professional.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🔨</div>
+        <h3>Construction Cleaning</h3>
+        <p>Post-construction cleanup done right — we remove dust, debris, and residue so your space is move-in ready.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🪲</div>
+        <h3>Bug Extermination</h3>
+        <p>Professional pest control services to keep your business environment safe, healthy, and pest-free.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🗑️</div>
+        <h3>Trash Removal</h3>
+        <p>Dependable trash and waste removal services to keep your facility clean and compliant at all times.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🧹</div>
+        <h3>Vacuuming</h3>
+        <p>Thorough vacuuming of carpets, rugs, and upholstery to remove dirt, allergens, and debris effectively.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="why-section">
+  <div style="max-width:1200px;margin:0 auto;">
+    <div class="why-grid">
+      <div class="why-image">
+        <img src="https://images.unsplash.com/photo-1770816307817-2fa6131e3a9b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w5MTIyMjB8MHwxfHNlYXJjaHwyfHxjbGVhbiUyMG1vZGVybiUyMG9mZmljZSUyMGNvbmZlcmVuY2UlMjByb29tJTIwaW50ZXJpb3J8ZW58MHwwfHx8MTc3NTIyODMwMXww&ixlib=rb-4.1.0&q=80&w=1080" alt="Clean modern office space">
+      </div>
+      <div>
+        <p class="section-label">Why Choose Us</p>
+        <h2 class="section-title">A Cleaning Company Erie Businesses Can Trust</h2>
+        <p class="section-sub" style="margin-bottom:2rem;">We don't just clean — we build relationships. Here's what sets Presque Isle Professional Maintenance apart from the rest.</p>
+        <div class="why-features">
+          <div class="why-item">
+            <div class="why-icon">🏠</div>
+            <div>
+              <h4>Family Owned &amp; Operated</h4>
+              <p>We're a local Erie business that truly cares about this community. When you work with us, you're part of the family.</p>
+            </div>
+          </div>
+          <div class="why-item">
+            <div class="why-icon">📋</div>
+            <div>
+              <h4>Trained Professionals</h4>
+              <p>Our team receives ongoing training in safety, proper cleaning techniques, equipment use, and top-tier customer service.</p>
+            </div>
+          </div>
+          <div class="why-item">
+            <div class="why-icon">✅</div>
+            <div>
+              <h4>Safety Certified</h4>
+              <p>We follow proper safety and regulatory standards on every job, so you can have complete peace of mind.</p>
+            </div>
+          </div>
+          <div class="why-item">
+            <div class="why-icon">🤝</div>
+            <div>
+              <h4>Same Trusted Crew Every Visit</h4>
+              <p>No strangers in your building — the same dependable team shows up each time, giving you consistency you can count on.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="gallery-strip">
+  <img src="https://images.unsplash.com/photo-1765371513492-264506c3ad09?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w5MTIyMjB8MHwxfHNlYXJjaHwxfHxjbGVhbiUyMG1vZGVybiUyMG9mZmljZSUyMGNvbmZlcmVuY2UlMjByb29tJTIwaW50ZXJpb3J8ZW58MHwwfHx8MTc3NTIyODMwMXww&ixlib=rb-4.1.0&q=80&w=1080" alt="Clean office interior">
+  <img src="https://images.unsplash.com/photo-1770816307817-2fa6131e3a9b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w5MTIyMjB8MHwxfHNlYXJjaHwyfHxjbGVhbiUyMG1vZGVybiUyMG9mZmljZSUyMGNvbmZlcmVuY2UlMjByb29tJTIwaW50ZXJpb3J8ZW58MHwwfHx8MTc3NTIyODMwMXww&ixlib=rb-4.1.0&q=80&w=1080" alt="Professional workspace">
+  <img src="https://images.unsplash.com/photo-1765371512971-9d4da531d004?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w5MTIyMjB8MHwxfHNlYXJjaHwzfHxjbGVhbiUyMG1vZGVybiUyMG9mZmljZSUyMGNvbmZlcmVuY2UlMjByb29tJTIwaW50ZXJpb3J8ZW58MHwwfHx8MTc3NTIyODMwMXww&ixlib=rb-4.1.0&q=80&w=1080" alt="Modern conference room">
+</div>
+
+<div class="cta-band">
+  <h2>Ready for a Cleaner, Healthier Workspace?</h2>
+  <p>Call us today or request a free estimate online. We're here to help Erie businesses put their best face forward — every single day.</p>
+  <div class="btn-group" style="justify-content:center;">
+    <a href="/presqueislepromain-com/contact/" class="btn btn-white">Get a Free Estimate</a>
+    <a href="tel:8148737799" class="btn btn-outline" style="border-color:rgba(255,255,255,.7);">Call (814) 873-7799</a>
+  </div>
+</div>
+
+<footer>
+  <div style="max-width:1200px;margin:0 auto;">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h3>Presque Isle Professional Maintenance, LLC</h3>
+        <p style="margin-bottom:.8rem;font-style:italic;color:#7eb8b2;">"Our business is cleaning yours"</p>
+        <p>Family owned and operated, proudly serving Erie, PA and surrounding communities with professional commercial cleaning services.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Business Hours</h4>
+        <ul>
+          <li>Monday: 9:00 AM – 6:00 PM</li>
+          <li>Tuesday: 9:00 AM – 6:00 PM</li>
+          <li>Wednesday: 9:00 AM – 6:00 PM</li>
+          <li>Thursday: 9:00 AM – 6:00 PM</li>
+          <li>Friday: 9:00 AM – 6:00 PM</li>
+          <li>Saturday: 9:00 AM – 5:00 PM</li>
+          <li>Sunday: Closed</li>
+        </ul>
+      </div>
+      <div class="footer-col footer-contact">
+        <h4>Contact Us</h4>
+        <ul>
+          <li style="margin-bottom:.4rem;"><a href="tel:8148737799">(814) 873-7799</a></li>
+          <li style="margin-bottom:.8rem;"><a href="mailto:erieproclean@gmail.com">erieproclean@gmail.com</a></li>
+          <li style="color:#aab0b8;">📍 Serving Erie, PA<br>and surrounding areas</li>
+        </ul>
+        <div style="margin-top:1.2rem;display:flex;flex-direction:column;gap:.6rem;">
+          <a href="/presqueislepromain-com/contact/" class="btn btn-primary" style="text-align:center;padding:.65rem 1.2rem;font-size:.9rem;">Free Estimate</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2025 Presque Isle Professional Maintenance, LLC. All rights reserved.</span>
+      <span>Erie, PA Commercial Cleaning Services</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+function toggleMenu(){
+  document.getElementById('mobileMenu').classList.toggle('open');
+}
+</script>
+</body>
+</html>
